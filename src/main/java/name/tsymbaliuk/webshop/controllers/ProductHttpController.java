@@ -15,9 +15,12 @@ public class ProductHttpController  {
 	@Autowired
 	ProductDAO productDAO;
 	
+
 	@RequestMapping(method = RequestMethod.GET)
 	public String printHello(@RequestParam Long id, ModelMap model) {
 		model.addAttribute(productDAO.findOne(id));
 	    return "hello";
-   }
+	}
+	
+	
 }

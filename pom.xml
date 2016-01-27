@@ -6,10 +6,20 @@
   <artifactId>webshop</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-
   <name>webshop</name>
 <!--   <url>http://maven.apache.org</url> -->
-
+  <build>
+  	<finalName>webshop</finalName>
+      <plugins>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-war-plugin</artifactId>
+<!--               <configuration> -->
+<!--                   <webXml>src\main\web\WEB-INF\web.xml</webXml> -->
+<!--               </configuration> -->
+          </plugin>
+      </plugins>
+  </build>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	<java.version>1.8</java.version>
@@ -18,19 +28,6 @@
 	<org.springframework.version>4.2.3.RELEASE</org.springframework.version>
 	<hibernate.version>5.0.7.Final</hibernate.version>
   </properties>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <configuration>
-                    <webXml>src\main\web\WEB-INF\web.xml</webXml>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
- 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -61,19 +58,25 @@
     <dependency>
         <groupId>org.springframework.data</groupId>
         <artifactId>spring-data-jpa</artifactId>
-        <version>1.9.2.RELEASE</version>
+        <version>LATEST</version>
     </dependency>
-  	<dependency>
+	<dependency>
 		<groupId>org.springframework</groupId>
 		<artifactId>spring-webmvc</artifactId>
 		<version>${org.springframework.version}</version>
 	</dependency>
-	    
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-web</artifactId>
+		<version>${org.springframework.version}</version>
+	</dependency>
+    
 	<dependency>
 		<groupId>org.apache.derby</groupId>
 		<artifactId>derby</artifactId>
 		<version>10.12.1.1</version>
 	</dependency>
+	
 	<dependency>
 		<groupId>org.hibernate</groupId>
 		<artifactId>hibernate-core</artifactId>
@@ -83,12 +86,26 @@
 		<groupId>org.hibernate</groupId>
 		<artifactId>hibernate-entitymanager</artifactId>
 		<version>${hibernate.version}</version>
+	</dependency> 
+	  
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.1.0</version>
 	</dependency>
-	<dependency>                                      
-	    <groupId>org.slf4j</groupId>                    
-	    <artifactId>slf4j-simple</artifactId>           
-	    <version>1.6.4</version>                        
-	    <scope>runtime</scope>                          
-	  </dependency> 
+<!-- 	<dependency> -->
+<!-- 		<groupId>javax.servlet</groupId> -->
+<!-- 		<artifactId>jstl</artifactId> -->
+<!-- 		<version>1.2</version> -->
+<!-- 	</dependency> -->
   </dependencies>
+  <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+  			<groupId>org.slf4j</groupId>
+  			<artifactId>slf4j-simple</artifactId>
+  			<version>LATEST</version>
+  		</dependency>
+  	</dependencies>
+  </dependencyManagement>
 </project>
