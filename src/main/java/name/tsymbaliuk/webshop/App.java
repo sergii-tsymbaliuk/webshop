@@ -1,10 +1,12 @@
+package name.tsymbaliuk.webshop;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import dao.ProductDAO;
-import entities.Product;
+import name.tsymbaliuk.webshop.dao.ProductDAO;
+import name.tsymbaliuk.webshop.entities.Product;
 
 /**
  *
@@ -24,6 +26,7 @@ public class App
 		
 		App app = applicationContext.getBean(App.class);
 		app.run();
+    	applicationContext.close();
     }
     
     public void run(){
@@ -42,6 +45,7 @@ public class App
 		}
     	
     	prods = productDAO.findAll();
-    	prods.forEach(e->{System.out.println(e);});   	
+    	prods.forEach(e->{System.out.println(e);});   
+    
     }
 }

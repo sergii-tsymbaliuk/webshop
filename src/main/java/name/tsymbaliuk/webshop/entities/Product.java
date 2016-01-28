@@ -1,4 +1,4 @@
-package entities;
+package name.tsymbaliuk.webshop.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
